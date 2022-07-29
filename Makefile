@@ -56,7 +56,7 @@ verify:
 
 clean:
 	make checkParam
-	cd ${circuit}/${circuit}_js && rm pot* multiplier2_* proof.json public.json verification_key.json witness.wtns
+	cd ${circuit}/${circuit}_js && rm pot* ${circuit}_* proof.json public.json verification_key.json witness.wtns
 
 checkParam:
 	if [[ -z "${circuit}" ]] ; then echo "Circuit is null" ; false ; fi
