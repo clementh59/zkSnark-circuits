@@ -1,6 +1,6 @@
 # ZK Snarks experiments using Circom
 
-You can find circom doc [here](https://docs.circom.io/getting-started/proving-circuits/#powers-of-tau)
+You can find Circom's documentation [here](https://docs.circom.io/getting-started/proving-circuits/#powers-of-tau).
 
 ## List of circuits
 
