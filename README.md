@@ -4,7 +4,9 @@ You can find Circom's documentation [here](https://docs.circom.io/getting-starte
 
 ## List of circuits
 
-- `multiplier2` proves that someone knows a and b so that a * b = 33, without revealing a nor b
+- `multiplier2` proves that someone knows a and b so that `a * b = x`, without revealing a nor b. x is public. It means that someone can prove, for example, that he knows a and b so that a * b = 101929, without revealing a nor b. To verify the correctness of the statement, we just need to check the output of the computation and check if it is equal to 101929. Please note that using a=1 and b=x works.
+- `multiplier3` is the same as `multiplier2` but with 3 inputs (`in1 * in2 * in3 = out`).
+- `multiplierN` is the same as `multiplier3` but with N inputs.
 
 ## Using the makefile
 

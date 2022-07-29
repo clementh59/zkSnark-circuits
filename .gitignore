@@ -1,3 +1,4 @@
 circom/
 **/**/*.ptau
 **/**/*.zkey
+.DS_Store
