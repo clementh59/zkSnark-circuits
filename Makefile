@@ -6,11 +6,12 @@ compile:
 	make checkParam
 	cd ${circuit} && circom ${circuit}.circom --r1cs --wasm --sym --c
 
+trustedSetup:
+	tau1
+	tau2
+
 generateAndVerify:
-	make checkParam
 	make generateWitness
-	make tau1
-	make tau2
 	make phase2_1
 	make phase2_2
 	make phase2_3
@@ -24,15 +25,15 @@ generateWitness:
 
 tau1:
 	make checkParam
-	cd ${circuit}/${circuit}_js && snarkjs powersoftau new bn128 ${constraints} pot${constraints}_0000.ptau -v
+	snarkjs powersoftau new bn128 ${constraints} pot${constraints}_0000.ptau -v
 
 tau2:
 	make checkParam
-	cd ${circuit}/${circuit}_js && snarkjs powersoftau contribute pot${constraints}_0000.ptau pot${constraints}_0001.ptau --name="First contribution" -v
+	snarkjs powersoftau contribute pot${constraints}_0000.ptau pot${constraints}_0001.ptau --name="First contribution" -v
 
 phase2_1:
 	make checkParam
-	cd ${circuit}/${circuit}_js && snarkjs powersoftau prepare phase2 pot${constraints}_0001.ptau pot${constraints}_final.ptau -v
+	cd ${circuit}/${circuit}_js && snarkjs powersoftau prepare phase2 ../../pot${constraints}_0001.ptau pot${constraints}_final.ptau -v
 
 phase2_2:
 	make checkParam

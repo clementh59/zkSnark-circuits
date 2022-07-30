@@ -32,7 +32,13 @@ You can run `make compile` to do it.
 
 Then, to generate a proof, look at the section below.
 
+## Generating a trusted setup
+
+You just need to run `make trustedSetup`.
+
 ## Generating a proof
+
+In order to generate a proof, you'll need a trusted setup. Please refer to the previous section.
 
 You can use the makefile in order to generate a proof for a given circuit.
 
