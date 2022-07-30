@@ -24,19 +24,19 @@ generateWitness:
 
 tau1:
 	make checkParam
-	cd ${circuit}/${circuit}_js && snarkjs powersoftau new bn128 12 pot12_0000.ptau -v
+	cd ${circuit}/${circuit}_js && snarkjs powersoftau new bn128 ${constraints} pot${constraints}_0000.ptau -v
 
 tau2:
 	make checkParam
-	cd ${circuit}/${circuit}_js && snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name="First contribution" -v
+	cd ${circuit}/${circuit}_js && snarkjs powersoftau contribute pot${constraints}_0000.ptau pot${constraints}_0001.ptau --name="First contribution" -v
 
 phase2_1:
 	make checkParam
-	cd ${circuit}/${circuit}_js && snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v
+	cd ${circuit}/${circuit}_js && snarkjs powersoftau prepare phase2 pot${constraints}_0001.ptau pot${constraints}_final.ptau -v
 
 phase2_2:
 	make checkParam
-	cd ${circuit}/${circuit}_js && snarkjs groth16 setup ../${circuit}.r1cs pot12_final.ptau ${circuit}_0000.zkey
+	cd ${circuit}/${circuit}_js && snarkjs groth16 setup ../${circuit}.r1cs pot${constraints}_final.ptau ${circuit}_0000.zkey
 
 phase2_3:
 	make checkParam
@@ -60,3 +60,4 @@ clean:
 
 checkParam:
 	if [[ -z "${circuit}" ]] ; then echo "Circuit is null" ; false ; fi
+	if [[ -z "${constraints}" ]] ; then echo "Constraints is null" ; false ; fi

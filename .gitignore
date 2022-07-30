@@ -2,3 +2,4 @@ circom/
 **/**/*.ptau
 **/**/*.zkey
 .DS_Store
+.vscode

@@ -12,19 +12,23 @@ You can find Circom's documentation [here](https://docs.circom.io/getting-starte
 
 A makefile has been written to simplify the creation of circuit as well as the generation and verification of proofs. In order to use it, you'll always have to be in the root folder of the project.
 
-If you do a lot of operations on a given circuit, you can just export the circuit name:
-`export circuit=YOUR_CIRCUIT_NAME` so that you are not forced to pass it as a param each time you use the makefile.
+If you do a lot of operations on a given circuit, you can just export the circuit name and number of constraint (useful for the power of tau ceremony):
+```shell
+export circuit=YOUR_CIRCUIT_NAME
+export constraints=12
+```
+so that you are not forced to pass them as params each time you use the makefile.
 
 ## Setting up a new circuit
 
-You can just run `make setup circuit=YOUR_CIRCUIT_NAME`.
+You can just run `make setup`.
 Then, go to the freshly created folder and write your circuit.
 Once it is written, follow the instructions of the section below.
 
 ## Modifying a circuit
 
 When you modify the code of a circuit, you'll need to re-compile it.
-You can run `make compile circuit=YOUR_CIRCUIT_NAME` to do it.
+You can run `make compile` to do it.
 
 Then, to generate a proof, look at the section below.
 
@@ -35,6 +39,6 @@ You can use the makefile in order to generate a proof for a given circuit.
 Here is what you'll need to do:
 1. Customize `{YOUR_CIRCUIT_NAME}/{YOUR_CIRCUIT_NAME}_js/input.json` with your inputs
 2. Go to the root folder
-3. `make generateAndVerify circuit=YOUR_CIRCUIT_NAME`
+3. `make generateAndVerify`
 
 You'll be asked to enter a few random messages.
